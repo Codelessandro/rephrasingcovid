@@ -1,0 +1,259 @@
+#main_grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 7fr 22fr 1fr;
+  min-height:100vh;
+  height:100vh;
+}
+
+
+header {
+  padding:1em;
+  text-align: right;
+}
+
+
+
+html {
+  font-family: Source Sans Pro,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
+}
+
+body {
+  margin: 0;
+
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: left;
+}
+
+
+a {
+  font-family: Source Sans Pro,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif;
+
+}
+
+main {
+  margin: 0 auto;
+  width:100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+
+article {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  width: 50%;
+  margin-top: 100px;
+  margin-bottom:100px;
+}
+
+.action {
+  width: 100%;
+  padding-top:2em;
+}
+
+.action button {
+  background: white;
+  margin:1em;
+}
+
+.shuffle {
+  color:  #007bff;
+  border:1px solid #007bff;
+}
+
+.shuffle:hover {
+  color: white;
+  background:  #007bff !important;
+}
+
+.copy {
+  color: black;
+  border: 1px solid black;
+}
+
+.saveQuote {
+  color: #cd2e7a;
+  border: 1px solid #cd2e7a;
+}
+.saveQuote:hover {
+  color: white;
+  background: #cd2e7a !important;
+}
+
+.quotes {
+  border-left: 5px solid #5cc0df;
+  width: 100%;
+  min-height:100px;
+  height:auto;
+}
+
+blockquote::before, blockquote::after {
+  content: none !important;
+}
+
+blockquote {
+  font-style:normal;
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 40px;
+  margin-inline-end: 40px;
+}
+
+
+blockquote p {
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  margin-bottom: 1rem;
+  font-size: 1.25rem;
+}
+
+
+
+.small {
+  font-style: italic;
+  font-weight: 400;
+}
+
+
+.score {
+margin:auto;
+  width:30%;
+}
+
+
+.grid {
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  width:600px;
+  height:120px;
+}
+
+
+
+#footer {
+  width:100%;
+  text-align:center;
+}
+
+#footer img {
+  height:70px;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+  .quotes {
+    width: 100%;
+    min-height:100px;
+    height:auto;
+  }
+
+  article {
+    width:100%;
+
+  }
+}
+
+
+
+
+@media only screen and (min-width: 1020px) {
+  .pos_score {
+    margin-left:15em;
+  }
+
+}
+
+
+
+
+::ng-deep .mat-progress-bar-fill::after {
+  background-color: #5cc0df;
+}
+
+::ng-deep .mat-progress-bar-buffer {
+  background: white;
+}
+
+::ng-deep .mat-progress-bar {
+  border-radius: 2px;
+}
+
+
+button {
+  font-weight: normal;
+}
+
+
+.scoreface {
+  height:50px;
+}
+
+.scorefacebg {
+  height:30px;
+  width:150px;
+  background-size:100%;
+  background-repeat: no-repeat;
+}
+
+.scorefacebg div {
+  opacity:0.9;
+  background-color:white;
+  width:20%;
+  height:30px;
+  float:left;
+  box-sizing: border-box;
+
+}
+
+
+
+.active {
+  opacity:0.2 !important;
+  animation-name: active;
+  animation-duration: 4s;
+
+}
+
+
+
+@keyframes active {
+  from {opacity: 0.9}
+  to {opacity: 0.2}
+}
+
+
+
+::ng-deep .mat-input-underline {
+  display: none;
+}
+
+
+#footer a, #footer a:link, #footer {
+  color: #bcbcbc;
+}
+
+
+/deep/ .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+  background-color: grey;
+}
+
+/deep/ .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+  background-color: grey;
+}
+
+
+#footer a {
+  font-size:80%;
+}

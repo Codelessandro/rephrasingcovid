@@ -1,0 +1,162 @@
+<div id="main_grid">
+  <header>
+    <div>
+      <mat-slide-toggle
+        color="grey"
+        class="example-margin"
+        (change)="toggle($event)"
+      >
+        Switch to <span *ngIf="!quoteService.isEng">English</span> <span *ngIf="quoteService.isEng">German</span>
+      </mat-slide-toggle>
+    </div>
+  </header>
+
+  <main>
+
+
+    <article>
+
+      <div class="quotes addQuote" *ngIf="showAddQuote" >
+
+        <h2> {{ textService.getText('explain_header', quoteService.getCurrentLanguageCode()) }}</h2>
+
+
+        <div style="text-align:left; margin:2em; padding-left:2em;">
+
+          <div>
+
+
+            <div *ngIf="quoteService.isEng">
+
+            In the face of Covid-19, we want to bring some positivity out there! You want to contribute to our movement? Just submit your contribution below. There are two parts of the sentence:
+
+
+
+
+
+
+
+              <ul>
+                <li>  Part 1: Please note a challenge or hardship you see – “Even if... ,”</li>
+                <li> Part 2: Please describe a positive experience you have – “I ....”</li>
+              </ul>
+
+
+            Doing so, your quote will become part of our Covid-19  Positive Thought Machine, which shuffles the submissions of everyone who contributed and provides them to the world. Let’s rephrase Covid-19!
+            </div>
+
+
+              <div *ngIf="!quoteService.isEng">
+            Wir stehen vor großen Herausforderungen. Mit positiven Gedanken geht vieles besser! Deshalb haben wir unsere Gedankenmaschine initiiert. Sie möchten auch mit Ihren positiven Gedanken teilnehmen? Das geht ganz einfach mit einem Satz aus zwei Teilen:
+
+
+            <ul>
+              <li> Teil 1: Bitte beschreiben Sie eine Herausforderung, die Sie sehen – „Auch wenn ...,“</li>
+              <li> Teil 2: Bitte notieren Sie anschließend eine positive Erfahrung oder Beobachtung</li>
+            </ul>
+
+
+
+
+            Die eingereichten Gedanken werden zufällig zusammengewürfelt und dann veröffentlicht. Let’s rephrase Covid-19!
+            </div>
+
+
+            <br />
+            <br />
+            <br />
+            <form>
+              <mat-form-field style="margin-right:2em;">
+                <mat-label> {{ textService.getText('part1', quoteService.getCurrentLanguageCode()) }}
+                </mat-label>
+                <input autocomplete="off" (focus)="inputfocused($event, true)" matInput name="first" placeholder="textService.getText('even', quoteService.getCurrentLanguageCode())" [ngModel]="first" (ngModelChange)="valuechange($event, true)">
+
+                <!--<mat-progress-bar mode="determinate" value="{{ score1 }}"></mat-progress-bar>-->
+              </mat-form-field>
+              <span style="font-size:100%; display:inline; margin-left:-20px; margin-right:20px;">,</span>
+              <mat-form-field>
+                <mat-label> {{ textService.getText('part2', quoteService.getCurrentLanguageCode()) }}
+                </mat-label>
+                <input autocomplete="off" matInput name="second" [ngModel]="second" (ngModelChange)="valuechange($event, false)">
+
+
+
+                <!--<mat-progress-bar mode="determinate" value="{{ score2 }}"></mat-progress-bar>-->
+
+
+
+              </mat-form-field>
+              <span style="font-size:100%">.</span>
+
+              <br/>
+              <br/>
+
+
+              <div class="pos_score">
+                {{ textService.getText('score', quoteService.getCurrentLanguageCode()) }}
+
+                <div class="scorefacebg" style="background-image:url('assets/scorefaces.png')">
+                  <div [ngClass]="{'active': face==0}"></div>
+                  <div [ngClass]="{'active': face==1}"></div>
+                  <div [ngClass]="{'active': face==2}"></div>
+                  <div [ngClass]="{'active': face==3}"></div>
+                  <div [ngClass]="{'active': face==4}"></div>
+                </div>
+              </div>
+
+
+            </form>
+
+
+
+          </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+      </div>
+
+
+      <div class="quotes" *ngIf="!showAddQuote">
+        <blockquote>
+          <p class="blockquote">
+            {{ quote }}
+          </p>
+        </blockquote>
+        <cite class="small" > ― {{ textService.getText('subtitle', quoteService.getCurrentLanguageCode()) }} </cite>
+      </div>
+
+
+      <div class="action" *ngIf="!showAddQuote">
+        <button (click)="shuffle()" mat-raised-button color="primary" class="saveQuote"> {{ textService.getText('shuffle', quoteService.getCurrentLanguageCode()) }}</button>
+        <button mat-raised-button color="accent" (click)="openSnackBar()" [cdkCopyToClipboard]="quote" class="shuffle"> {{ textService.getText('copy', quoteService.getCurrentLanguageCode()) }}
+        </button>
+        <button mat-raised-button color="accent" (click)="addQuote()" class="shuffle"> {{ textService.getText('add', quoteService.getCurrentLanguageCode()) }}</button>
+      </div>
+
+      <div class="action" *ngIf="showAddQuote">
+        <button mat-raised-button color="accent" (click)="returnQuotes()" class="saveQuote"> {{ textService.getText('return', quoteService.getCurrentLanguageCode()) }} </button>
+        <button mat-raised-button color="accent" (click)="saveQuote()" class="shuffle"> {{ textService.getText('speichern', quoteService.getCurrentLanguageCode()) }} </button>
+      </div>
+
+    </article>
+
+  </main>
+
+
+  <footer id="footer">
+    <a target="_blank" href="https://lead.berlin/ml"><img src="assets/logo.png" /></a><br /><br />
+    <a target="_blank" href="https://www.lead.berlin/mindsets-capabilities/meta/impressum.html"> {{ textService.getText('imprint', quoteService.getCurrentLanguageCode()) }}</a> | <a href="https://www.lead.berlin/lead-machine-learning/privacy-policy.html">Disclaimer</a><br /><br />
+  </footer>
+
+</div>
+
+
